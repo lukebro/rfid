@@ -19,7 +19,7 @@
                             <span class="icon is-medium">
                                 <i class="fa fa-database" aria-hidden="true"></i>
                             </span>
-                            <span>RFID</span>
+                            <span><h1 class="title is-4">RFID</h1></span>
                         </div>
                         <span class="nav-toggle">
                             <span></span>
