@@ -15,24 +15,11 @@
             <div class="hero-head">
                 <header class="nav">
                     <div class="container">
-                        <div class="nav-left" style="align-items: center;">
+                        <div class="nav-center" style="align-items: center;">
                             <span class="icon is-medium">
                                 <i class="fa fa-database" aria-hidden="true"></i>
                             </span>
                             <span><h1 class="title is-4">RFID</h1></span>
-                        </div>
-                        <span class="nav-toggle">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                        <div class="nav-right nav-menu">
-                            <a href="home" class="nav-item">
-                                Home
-                            </a>
-                            <a href="data" class="nav-item">
-                                Data
-                            </a>
                         </div>
                     </div>
                 </header>
