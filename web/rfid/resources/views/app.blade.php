@@ -21,6 +21,7 @@
                             </span>
                             <span><h1 class="title is-4">RFID</h1></span>
                         </div>
+                        @yield("nav")
                     </div>
                 </header>
             </div>

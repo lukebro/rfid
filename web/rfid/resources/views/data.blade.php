@@ -4,6 +4,17 @@
 Data
 @endsection
 
+@section('nav')
+	<div class="nav-center" style="align-items: center;">
+		<div class="nav-item">
+	    	<a href="/home" class="button is-primary is-inverted is-outlined">Home</a>
+	   	</div>
+	   	<div class="nav-item">
+			<a href="{{ route('logout') }}" class="button is-primary is-inverted is-outlined">Logout</a>
+		</div>
+	</div>
+@endsection
+
 @section('content')
 	<div class="container">
 		<table class="table">
@@ -11,8 +22,8 @@ Data
 				<tr>
 					<th></th>
 					<th>ID</th>
-					<th>Timestamp</th>
 					<th>Location</th>
+					<th>Timestamp</th>
 				</tr>
 			</thead>
 			<tbody>
