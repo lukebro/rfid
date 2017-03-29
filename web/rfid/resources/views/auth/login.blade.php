@@ -42,11 +42,13 @@ Login
                         </button>
                     </p>
                 </div>
+                <!--
                 <div class="field">
                     <p class="control">
                         Don't have an account? <a href="{{ route("register") }}"><strong>Register here!</strong></a>
                     </p>
                 </div>
+                -->
             </form>
         </div>
     </div>
