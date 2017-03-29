@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/login', function () {
-    return view('auth/login');
-});
-
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/data', 'DataController@index');

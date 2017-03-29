@@ -7,15 +7,15 @@ Login
 @section('content')
 <div class="container">
     <div class="container">
-        <div style="width: 50%; margin: 0 auto;">
+        <div id="form__container" style="width: 50%; margin: 0 auto;">
             @if($errors->any())
-                <div class="row collapse">
-                    <ul class="alert-box warning radius">
-                        @foreach($errors->all() as $error)
-                            <li> {{ $error }} </li>
-                        @endforeach
-                    </ul>
-                </div>
+                @foreach($errors->all() as $error)
+                    <article class="message is-danger">
+                        <div class="message-body">
+                            {{ $error }}
+                        </div>
+                    </article>
+                @endforeach
             @endif
             <form role="form" method="POST" action="{{ route('login') }}">
                  {{ csrf_field() }}

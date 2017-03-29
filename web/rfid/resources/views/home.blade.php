@@ -17,6 +17,6 @@ Home
 
 @section('content')
     <div class="container">
-        <h1 class="title">Dashboard</h1>
+        <h1 class="title is-1">Dashboard</h1>
     </div>
 @endsection
