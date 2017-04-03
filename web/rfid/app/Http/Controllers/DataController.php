@@ -17,7 +17,7 @@ class DataController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Show a list of all of the application's users.
      *
@@ -25,7 +25,7 @@ class DataController extends Controller
      */
     public function index()
     {
-        $captures = DB::select('select * from captures');
+        $captures = DB::select('select * from captures order by created_at desc');
 
         return view('data', ['captures' => $captures]);
     }

@@ -32,7 +32,7 @@ Data
 						<th>{{ $capture->id }}</th>
 						<td>{{ $capture->card }}</td>
 						<td>{{ $capture->location_id }}</td>
-						<td>{{ $capture->created_at }}</td>
+						<td>{{ Carbon\Carbon::parse($capture->created_at)->diffForHumans() }}</td>
 					</tr>
 				 @endforeach
 			</tbody>
