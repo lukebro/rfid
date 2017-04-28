@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -47,9 +47,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['card'] = '540:'.$data['card'];
+
         return Validator::make($data, [
             'username' => 'required|min:2|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'card' => 'required|exists:captures,card',
             'password' => 'required|min:4|confirmed'
         ]);
     }
@@ -64,7 +66,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'username' => $data['username'],
-            'email' => $data['email'],
+            'card' => '540:'.$data['card'],
             'password' => bcrypt($data['password']),
             'remember_token' => str_random(10)
         ]);

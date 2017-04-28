@@ -2,31 +2,56 @@
 
 namespace App\Http\Controllers;
 
+use App\Capture;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 
 class DataController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show a list of all of the application's users.
-     *
-     * @return Response
-     */
     public function index()
     {
-        $captures = DB::select('select * from captures order by created_at desc');
+        $card = Auth::user()->card;
 
-        return view('data', ['captures' => $captures]);
+        $captures = Capture::where('card', $card)->latest()->get();
+
+        return view('dashboard', [
+            'captures' => $captures
+        ]);
     }
+
+    public function statistics()
+    {
+        return view('statistics');
+    }
+
+    public function captures()
+    {
+        return view('captures', [
+            'captures' => Capture::latest()->get(),
+        ]);
+    }
+
+    public function capture($card)
+    {
+        $captures = Capture::where('card', '540:'.$card)->latest()->get();
+
+        if ($captures->isEmpty()) {
+            return redirect()->route('captures');
+        }
+
+        return view('capture', [
+            'captures' => $captures,
+            'card' => $card
+        ]);
+    }
+
+
+
+
 }

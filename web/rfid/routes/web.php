@@ -14,13 +14,13 @@ use App\Statistics;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return redirect()->route('login');
 });
 
-Route::get('/logout', 'Auth\LoginController@logout');
-
-Route::get('/data', 'DataController@index');
-
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index');
+Route::get('dashboard', 'DataController@index')->name('dashboard');
+Route::get('captures', 'DataController@captures')->name('captures');
+Route::get('captures/{id}', 'DataController@capture')->name('captures.show');
+Route::get('statistics', 'DataController@statistics')->name('statistics');

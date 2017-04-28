@@ -11,4 +11,10 @@ class Capture extends Model
 	protected $casts = [
 		'created_at' => 'datetime',
 	];
+
+	public function getNumberAttribute()
+	{
+		 return str_replace('540:', '', $this->card);
+	}
+
 }
