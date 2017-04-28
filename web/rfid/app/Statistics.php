@@ -20,6 +20,21 @@ class Statistics
 			'Sunday' => [],
 	];
 
+	protected $hours = [
+		8 => [],
+		9 => [],
+		10 => [],
+		11 => [],
+		12 => [],
+		13 => [],
+		14 => [],
+		15 => [],
+		16 => [],
+		17 => [],
+		18 => [],
+		19 => [],
+	];
+
 	public function __construct()
 	{
 		$this->captures = Capture::all();
@@ -60,8 +75,21 @@ class Statistics
 	public function averageHourlyPeak()
 	{
 		$all = $this->all();
-		$first = $all->first()->created_at->subDay(1);
-		$days = collect($this->days);
+		$first = $all->first()->created_at;
+		$hours = collect($this->hours);
+		$dayCount = Carbon::now()->diffInDays($first);
+
+		$hoursTotal = $hours->map(function ($value, $hour) use ($all, $dayCount) {
+		    $value = 0;
+		    foreach($all as $capture) {
+		    	if($hour == $capture->created_at->hour) {
+		    		$value++;
+		    	}
+		    }
+		    return (int) round($value / $dayCount);
+		});
+
+		dd($hoursTotal);
 	}
 
 
