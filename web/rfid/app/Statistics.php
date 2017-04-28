@@ -57,6 +57,14 @@ class Statistics
 		return $days;
 	}
 
+	public function averageHourlyPeak()
+	{
+		$all = $this->all();
+		$first = $all->first()->created_at->subDay(1);
+		$days = collect($this->days);
+	}
+
+
 	public function frequentOverall()
 	{
 		return Capture::select(DB::raw('count(*) as count, card'))
@@ -73,7 +81,7 @@ class Statistics
 			->orderBy('count', 'desc')
 			->get();
 	}
-	public function countUniqueDays($day, $start)
+	protected function countUniqueDays($day, $start)
 	{
 		$date = $start->copy();
 		$counter = 0;
