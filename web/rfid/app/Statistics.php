@@ -119,7 +119,7 @@ class Statistics
 		return true;
 	}
 
-	public function avgTimeSpent()
+	public function averageTimeSpent()
 	{
 		$count = 0;
 		$totalDiff = 0;
@@ -133,15 +133,16 @@ class Statistics
     		for($i = sizeof($item) - 1; $i > 0; $i = $i - 2) {
     			if($item[$i] != null && $item[$i - 1] != null){
     				if($this->sameDay($item[$i]->created_at, $item[$i - 1]->created_at)) {
-    					$totalDiff += abs($item[$i]->created_at->diffInMinutes($item[$i - 1]->created_at));
-    					$count++;
+    					if($this->validateCapture($item[$i]) && $this->validateCapture($item[$i - 1])) {
+    						$totalDiff += abs($item[$i]->created_at->diffInMinutes($item[$i - 1]->created_at));
+    						$count++;
+    					}
     				}
     			}
     		}
 		}
-
 		$avg = ($totalDiff/$count);
-		dd($avg);
+		return $avg;
 	}
 
 

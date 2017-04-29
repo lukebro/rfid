@@ -29,6 +29,7 @@ class DataController extends Controller
     public function statistics()
     {
         $stats = new Statistics;
+
         return view('statistics', [
             'stats' => $stats,
         ]);
