@@ -14,7 +14,7 @@
         </script>
     </head>
     <body>
-        <div id="#app">
+        <div id="app">
             @include('partials.nav')
 
             <section class="section" >

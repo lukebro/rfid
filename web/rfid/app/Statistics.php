@@ -89,7 +89,7 @@ class Statistics
 		    return (int) round($value / $dayCount);
 		});
 
-		dd($hoursTotal);
+		return $hoursTotal;
 	}
 
 

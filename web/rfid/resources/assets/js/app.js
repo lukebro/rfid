@@ -13,7 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//Vue.component('example', require('./components/Example.vue'));
+Vue.component('line-graph', require('./components/LineGraph.vue'));
 
 const app = new Vue({
     el: '#app'

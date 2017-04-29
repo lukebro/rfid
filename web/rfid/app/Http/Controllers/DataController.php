@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Capture;
 use App\Http\Controllers\Controller;
+use App\Statistics;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +28,10 @@ class DataController extends Controller
 
     public function statistics()
     {
-        return view('statistics');
+        $stats = new Statistics;
+        return view('statistics', [
+            'stats' => $stats,
+        ]);
     }
 
     public function captures()
