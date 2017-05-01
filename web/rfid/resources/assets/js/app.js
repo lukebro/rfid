@@ -14,6 +14,9 @@ require('./bootstrap');
  */
 
 Vue.component('line-graph', require('./components/LineGraph.vue'));
+Vue.component('modal', require('./components/Modal.vue'));
+
+window.Bus = new Vue({});
 
 const app = new Vue({
     el: '#app'

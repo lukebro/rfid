@@ -39,7 +39,7 @@ class Statistics
 
 	public function __construct()
 	{
-		$this->captures = Capture::all();
+		$this->captures = Capture::where('card', 'like', '540:%')->get();
 	}
 
 	public function all()
