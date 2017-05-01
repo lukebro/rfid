@@ -26,7 +26,7 @@ Register
                             <i class="fa fa-id-card"></i>
                         </span>
                     </p>
-                    <p class="help is-info"><a href="#">How do I find my card number?</a></p>
+                    <p class="help is-info"><a @click="$emit('modal', 'card')">How do I find my card number?</a></p>
                 </div>
                 <div class="field">
                     <p class="control has-icon">
@@ -59,5 +59,14 @@ Register
             </form>
         </div>
     </div>
+    <modal name="card">
+        <template slot="title">How to find your card number</template>
+        <p class="image is-16by9">
+            <img src="{{ asset('images/card.png') }}">
+        </p>
+        <p>
+            A 6 digit card number is located on the back of your CCSU Bluechip card.
+        </p>
+    </modal>
 @endsection
 

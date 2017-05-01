@@ -19,5 +19,11 @@ Vue.component('modal', require('./components/Modal.vue'));
 window.Bus = new Vue({});
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    mounted() {
+        this.$on('modal', name => {
+            Bus.$emit('modal', name);
+        });
+    }
 });
