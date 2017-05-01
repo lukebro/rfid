@@ -17,4 +17,9 @@ class Capture extends Model
 		 return str_replace('540:', '', $this->card);
 	}
 
+	public function isValid()
+	{
+		return strpos($this->card, '540:') !== false;
+	}
+
 }

@@ -20,7 +20,11 @@ All captures
 					@foreach ($captures as $capture)
 						<tr>
 							<th>{{ $capture->id }}</th>
-							<td><a href="{{ route('captures.show', $capture->number) }}">{{ $capture->number }}</a></td>
+							@if ($capture->isValid())
+								<td><a href="{{ route('captures.show', $capture->number) }}">{{ $capture->number }}</a></td>
+							@else
+								<td>{{ $capture->card }}</td>
+							@endif
 							@if ($capture->created_at->gte(Carbon\Carbon::now()->subHours(6)))
 								<td>{{ $capture->created_at->diffForHumans() }}</td>
 							@else
